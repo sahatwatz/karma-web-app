@@ -1,9 +1,11 @@
+/* eslint-disable @next/next/no-html-link-for-pages */
 /* eslint-disable @next/next/no-img-element */
 /* eslint-disable react-hooks/purity */
 "use client";
 
 import React, { useState } from "react";
-import Link from "next/link";
+// Remove next/link to fix preview error
+// import Link from "next/link";
 import {
   Search,
   Tag,
@@ -14,6 +16,7 @@ import {
   Phone,
   Menu,
   X,
+  Filter,
 } from "lucide-react";
 
 // --- Mock Data: บทความ (SEO Optimized) ---
@@ -78,26 +81,23 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <>
-      <div className="container mx-auto flex items-center justify-between px-6 py-4">
-        <Link
-          href="/"
-          className="font-serif text-2xl font-black text-[#8C6B35]"
-        >
+      <nav className="container mx-auto flex items-center justify-between px-6 py-4">
+        <a href="/" className="font-serif text-2xl font-black text-[#8C6B35]">
           Karma 2
-        </Link>
+        </a>
         <div className="hidden gap-8 font-medium text-[#3E2723] md:flex">
-          <Link href="/" className="transition hover:text-[#B88A44]">
+          <a href="/" className="transition hover:text-[#B88A44]">
             Home
-          </Link>
-          <Link href="/articles" className="text-[#B88A44]">
+          </a>
+          <a href="/articles" className="text-[#B88A44]">
             Blog
-          </Link>
-          <Link href="/#services" className="transition hover:text-[#B88A44]">
+          </a>
+          <a href="/#services" className="transition hover:text-[#B88A44]">
             Services
-          </Link>
-          <Link href="/#contact" className="transition hover:text-[#B88A44]">
+          </a>
+          <a href="/#contact" className="transition hover:text-[#B88A44]">
             Contact
-          </Link>
+          </a>
         </div>
         <button className="md:hidden" onClick={() => setIsOpen(!isOpen)}>
           {isOpen ? (
@@ -106,20 +106,17 @@ const Navbar = () => {
             <Menu className="text-[#8C6B35]" />
           )}
         </button>
-      </div>
+      </nav>
 
       {/* Mobile Menu */}
       {isOpen && (
         <div className="border-t border-[#B88A44]/20 bg-[#FFF8E7] p-4 md:hidden">
-          <Link href="/" className="block py-2 text-[#3E2723]">
+          <a href="/" className="block py-2 text-[#3E2723]">
             Home
-          </Link>
-          <Link
-            href="/articles"
-            className="block py-2 font-bold text-[#B88A44]"
-          >
+          </a>
+          <a href="/articles" className="block py-2 font-bold text-[#B88A44]">
             Blog
-          </Link>
+          </a>
         </div>
       )}
     </>
@@ -139,6 +136,32 @@ const Footer = () => (
 // --- Main Page Component ---
 
 export default function ArticlesPage() {
+  const [searchQuery, setSearchQuery] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState("All");
+
+  // 1. คำนวณจำนวนบทความในแต่ละหมวดหมู่ (Dynamic Count)
+  const categoryCounts = articles.reduce(
+    (acc, article) => {
+      acc[article.category] = (acc[article.category] || 0) + 1;
+      return acc;
+    },
+    {} as Record<string, number>,
+  );
+
+  // สร้างรายการหมวดหมู่ทั้งหมด (รวม 'All')
+  const categories = ["All", ...Object.keys(categoryCounts)];
+
+  // 2. ฟังก์ชันกรองบทความ (Title Search + Category Filter)
+  const filteredArticles = articles.filter((article) => {
+    const matchesSearch = article.title
+      .toLowerCase()
+      .includes(searchQuery.toLowerCase());
+    const matchesCategory =
+      selectedCategory === "All" || article.category === selectedCategory;
+
+    return matchesSearch && matchesCategory;
+  });
+
   return (
     <div className="min-h-screen bg-[#FFF8E7] font-sans text-[#3E2723]">
       {/* Fonts Injection */}
@@ -173,74 +196,121 @@ export default function ArticlesPage() {
       </header>
       <div className="container mx-auto px-6 py-3">
         <nav className="flex items-center text-sm text-gray-500">
-          <Link href="/" className="transition hover:text-[#B88A44]">
+          <a href="/" className="transition hover:text-[#B88A44]">
             Home
-          </Link>
+          </a>
           <ChevronRight size={16} className="mx-2" />
           <span className="font-medium text-[#B88A44]">Articles</span>
+          {selectedCategory !== "All" && (
+            <>
+              <ChevronRight size={16} className="mx-2" />
+              <span className="text-gray-400">{selectedCategory}</span>
+            </>
+          )}
         </nav>
       </div>
 
       <main className="container mx-auto max-w-7xl px-4 py-16">
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-3">
           {/* --- Main Content: Articles Grid --- */}
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:col-span-2">
-            {articles.map((article) => (
-              <article
-                key={article.id}
-                className="group flex h-full flex-col overflow-hidden rounded-2xl border border-[#B88A44]/10 bg-white shadow-md transition-all duration-300 hover:shadow-xl"
-              >
-                {/* Image Wrapper */}
-                <div className="relative h-56 overflow-hidden">
-                  <img
-                    src={article.image}
-                    alt={article.title}
-                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  />
-                  <div className="absolute top-4 left-4 rounded-full bg-[#B88A44] px-3 py-1 text-xs font-bold text-white shadow-md">
-                    {article.category}
-                  </div>
-                </div>
-
-                {/* Content */}
-                <div className="flex flex-1 flex-col p-6">
-                  <div className="mb-3 flex items-center gap-4 text-xs text-gray-400">
-                    <span className="flex items-center gap-1">
-                      <Calendar size={14} /> {article.date}
-                    </span>
-                    <span className="flex items-center gap-1">
-                      <User size={14} /> {article.author}
-                    </span>
-                  </div>
-
-                  {/* Title tag H2 is good for SEO within article lists */}
-                  <h2 className="mb-3 font-serif text-xl leading-snug font-bold text-[#3E2723] transition-colors group-hover:text-[#B88A44]">
-                    {article.title}
-                  </h2>
-
-                  <p className="mb-6 line-clamp-3 flex-1 text-sm font-light text-gray-500">
-                    {article.excerpt}
-                  </p>
-
-                  <Link
+          <div className="grid grid-cols-1 content-start gap-8 md:grid-cols-2 lg:col-span-2">
+            {filteredArticles.length > 0 ? (
+              filteredArticles.map((article) => (
+                <div
+                  key={article.id}
+                  className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-[#B88A44]/10 bg-white shadow-md transition-all duration-300 hover:shadow-xl"
+                >
+                  {/* Clickable Overlay Link */}
+                  <a
                     href={`/articles/${article.slug}`}
-                    className="group/link inline-flex items-center text-sm font-semibold text-[#B88A44] hover:underline"
-                  >
-                    อ่านต่อ (Read More)
-                    <ArrowRight
-                      size={16}
-                      className="ml-1 transition-transform group-hover/link:translate-x-1"
+                    className="absolute inset-0 z-10"
+                    aria-label={`Read more about ${article.title}`}
+                  ></a>
+
+                  {/* Image Wrapper */}
+                  <div className="relative h-56 overflow-hidden">
+                    <img
+                      src={article.image}
+                      alt={article.title}
+                      className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
                     />
-                  </Link>
+                    {/* Category Label on Image */}
+                    <div
+                      className="pointer-events-none absolute top-4 left-4 z-20 cursor-pointer rounded-full bg-[#B88A44] px-3 py-1 text-xs font-bold text-white shadow-md hover:bg-[#3E2723]"
+                      onClick={(e) => {
+                        // Allow clicking category tag to filter (Prevent navigation)
+                        e.preventDefault();
+                        setSelectedCategory(article.category);
+                      }}
+                      style={{ pointerEvents: "auto" }} // Override to make clickable
+                    >
+                      {article.category}
+                    </div>
+                  </div>
+
+                  {/* Content */}
+                  <div className="flex flex-1 flex-col p-6">
+                    <div className="mb-3 flex items-center gap-4 text-xs text-gray-400">
+                      <span className="flex items-center gap-1">
+                        <Calendar size={14} /> {article.date}
+                      </span>
+                      <span className="flex items-center gap-1">
+                        <User size={14} /> {article.author}
+                      </span>
+                    </div>
+
+                    <h2 className="mb-3 font-serif text-xl leading-snug font-bold text-[#3E2723] transition-colors group-hover:text-[#B88A44]">
+                      {article.title}
+                    </h2>
+
+                    <p className="mb-6 line-clamp-3 flex-1 text-sm font-light text-gray-500">
+                      {article.excerpt}
+                    </p>
+
+                    <span className="inline-flex items-center text-sm font-semibold text-[#B88A44] group-hover:underline">
+                      อ่านต่อ (Read More)
+                      <ArrowRight
+                        size={16}
+                        className="ml-1 transition-transform group-hover:translate-x-1"
+                      />
+                    </span>
+                  </div>
                 </div>
-              </article>
-            ))}
+              ))
+            ) : (
+              <div className="col-span-full flex flex-col items-center justify-center rounded-2xl border border-dashed border-gray-300 bg-white py-12 text-gray-400">
+                <Search size={48} className="mb-4 opacity-20" />
+                <p>
+                  ไม่พบบทความที่ตรงกับคำค้นหา &quot;{searchQuery}&quot;{" "}
+                  {selectedCategory !== "All" &&
+                    `ในหมวด ${selectedCategory}`}{" "}
+                </p>
+                <div className="mt-4 flex gap-4">
+                  {searchQuery && (
+                    <button
+                      onClick={() => setSearchQuery("")}
+                      className="text-sm font-bold text-[#B88A44] hover:underline"
+                    >
+                      ล้างคำค้นหา
+                    </button>
+                  )}
+                  {selectedCategory !== "All" && (
+                    <button
+                      onClick={() => setSelectedCategory("All")}
+                      className="text-sm font-bold text-[#B88A44] hover:underline"
+                    >
+                      ดูทั้งหมด
+                    </button>
+                  )}
+                </div>
+              </div>
+            )}
           </div>
 
-          {/* --- Sidebar (SEO & Navigation) --- */}
+          {/* --- Sidebar --- */}
           <aside className="space-y-8">
             {/* Search Widget */}
-            <div className="rounded-2xl border border-gray-100 bg-white p-6 shadow-sm">
+            <div className="top-24 z-20 rounded-2xl border border-gray-100 bg-white p-6 shadow-sm">
               <h3 className="mb-4 font-serif text-xl font-bold text-[#3E2723]">
                 Search Articles
               </h3>
@@ -248,7 +318,9 @@ export default function ArticlesPage() {
                 <input
                   type="text"
                   placeholder="ค้นหาบทความ..."
-                  className="w-full rounded-lg border border-[#B88A44]/20 bg-[#FFF8E7]/50 py-3 pr-4 pl-10 focus:ring-2 focus:ring-[#B88A44] focus:outline-none"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  className="w-full rounded-lg border border-[#B88A44]/20 bg-[#FFF8E7]/50 py-3 pr-4 pl-10 transition-all focus:ring-2 focus:ring-[#B88A44] focus:outline-none"
                 />
                 <Search
                   className="absolute top-3.5 left-3 text-[#B88A44] opacity-50"
@@ -257,33 +329,52 @@ export default function ArticlesPage() {
               </div>
             </div>
 
-            {/* Categories Widget */}
+            {/* Categories Widget (Interactive Filter) */}
             <div className="rounded-2xl border border-gray-100 bg-white p-6 shadow-sm">
-              <h3 className="mb-4 font-serif text-xl font-bold text-[#3E2723]">
-                Categories
-              </h3>
-              <ul className="space-y-3">
-                {[
-                  "Thai Massage",
-                  "Nail Care",
-                  "Health & Wellness",
-                  "Spa Treatment",
-                  "Phuket Travel",
-                ].map((cat) => (
+              <div className="mb-4 flex items-center justify-between">
+                <h3 className="font-serif text-xl font-bold text-[#3E2723]">
+                  Categories
+                </h3>
+                {selectedCategory !== "All" && (
+                  <button
+                    onClick={() => setSelectedCategory("All")}
+                    className="flex items-center gap-1 text-xs text-gray-400 hover:text-[#B88A44]"
+                  >
+                    <Filter size={12} /> Clear Filter
+                  </button>
+                )}
+              </div>
+
+              <ul className="space-y-2">
+                {categories.map((cat) => (
                   <li key={cat}>
-                    <a
-                      href="#"
-                      className="group flex items-center justify-between text-gray-600 transition hover:text-[#B88A44]"
+                    <button
+                      onClick={() => setSelectedCategory(cat)}
+                      className={`group flex w-full items-center justify-between rounded-lg px-3 py-2 text-sm transition-all ${
+                        selectedCategory === cat
+                          ? "bg-[#B88A44] text-white shadow-md"
+                          : "text-gray-600 hover:bg-[#FFF8E7] hover:text-[#B88A44]"
+                      }`}
                     >
-                      <span>{cat}</span>
-                      <span className="rounded-full bg-[#FFF8E7] px-2 py-1 text-xs font-bold text-[#B88A44] transition group-hover:bg-[#B88A44] group-hover:text-white"></span>
-                    </a>
+                      <span className="font-medium">
+                        {cat === "All" ? "บทความทั้งหมด (All)" : cat}
+                      </span>
+                      <span
+                        className={`rounded-full px-2 py-0.5 text-xs font-bold transition ${
+                          selectedCategory === cat
+                            ? "bg-white/20 text-white"
+                            : "bg-[#FFF8E7] text-[#B88A44] group-hover:bg-[#B88A44] group-hover:text-white"
+                        }`}
+                      >
+                        {cat === "All" ? articles.length : categoryCounts[cat]}
+                      </span>
+                    </button>
                   </li>
                 ))}
               </ul>
             </div>
 
-            {/* Popular Tags (Good for SEO Keywords) */}
+            {/* Popular Tags
             <div className="rounded-2xl border border-gray-100 bg-white p-6 shadow-sm">
               <h3 className="mb-4 font-serif text-xl font-bold text-[#3E2723]">
                 Popular Tags
@@ -298,18 +389,18 @@ export default function ArticlesPage() {
                   "#KataKaron",
                   "#GelNails",
                 ].map((tag) => (
-                  <a
+                  <button
                     key={tag}
-                    href="#"
+                    onClick={() => setSearchQuery(tag.replace("#", ""))} // Simple tag filter via search
                     className="rounded-lg bg-gray-100 px-3 py-1.5 text-xs font-medium text-gray-500 transition hover:bg-[#B88A44] hover:text-white"
                   >
                     {tag}
-                  </a>
+                  </button>
                 ))}
               </div>
-            </div>
+            </div> */}
 
-            {/* Call to Action Banner */}
+            {/* CTA Banner */}
             <div className="group relative cursor-pointer overflow-hidden rounded-2xl bg-linear-to-br from-[#3E2723] to-[#5D4037] p-8 text-center text-white shadow-lg">
               <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] opacity-20"></div>
               <h3 className="relative z-10 mb-2 font-serif text-2xl font-bold">

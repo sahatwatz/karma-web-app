@@ -378,7 +378,7 @@ const LocationSection = () => {
               </p>
               <div className="mb-6 rounded-lg border-2 border-dashed border-gray-300 p-2">
                 <img
-                  src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=Karma2PhuketLocation"
+                  src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://maps.app.goo.gl/5DLhy9FEzSSRdy498"
                   alt="QR Code"
                   className="h-32 w-32 opacity-90"
                 />
