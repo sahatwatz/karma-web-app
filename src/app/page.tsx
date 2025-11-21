@@ -204,11 +204,13 @@ const Hero = () => {
           Massage & Nails
         </h2>
         <p className="mx-auto mb-10 max-w-xl text-lg font-light text-white/90">
-          Experience premium relaxation and beauty services at Kata Karon.
+          Experience premium relaxation and beauty services at Karon.
         </p>
 
         <button className="mx-auto flex items-center gap-2 rounded-full bg-[#B88A44] px-10 py-4 text-lg font-bold text-white shadow-2xl transition-transform hover:scale-105">
-          Check Menu <ArrowRight size={20} />
+          <a href="#menu" className="flex items-center gap-2">
+            Explore Our Services <ArrowRight size={20} />
+          </a>
         </button>
       </div>
 
@@ -310,6 +312,7 @@ const MenuSection = () => {
 };
 
 const LocationSection = () => {
+  const googleMapUrl = "https://maps.app.goo.gl/5DLhy9FEzSSRdy498";
   return (
     <section
       id="location"
@@ -326,9 +329,9 @@ const LocationSection = () => {
           </div>
 
           <p className="text-lg leading-relaxed text-gray-600">
-            Located in the heart of Kata Karon, we offer a sanctuary of
-            tranquility. Parking is available. Walk-ins are welcome, but booking
-            is recommended.
+            Located in the heart of Karon, we offer a sanctuary of tranquility.
+            Parking is available. Walk-ins are welcome, but booking is
+            recommended.
           </p>
 
           <div className="grid gap-6">
@@ -338,9 +341,7 @@ const LocationSection = () => {
               </div>
               <div>
                 <p className="font-bold text-[#3E2723]">Address</p>
-                <p className="text-sm text-gray-600">
-                  Kata Karon, Phuket, Thailand
-                </p>
+                <p className="text-sm text-gray-600">Karon, Phuket, Thailand</p>
               </div>
             </div>
             <div className="flex items-center gap-4 rounded-xl border border-[#B88A44]/20 bg-[#FFF8E7] p-4">
@@ -375,7 +376,6 @@ const LocationSection = () => {
               <p className="mb-6 text-sm text-gray-500">
                 Open Google Maps location
               </p>
-
               <div className="mb-6 rounded-lg border-2 border-dashed border-gray-300 p-2">
                 <img
                   src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=Karma2PhuketLocation"
@@ -384,9 +384,14 @@ const LocationSection = () => {
                 />
               </div>
 
-              <button className="w-full rounded-lg bg-[#B88A44] py-3 text-sm font-bold text-white shadow-lg">
+              <a
+                href={googleMapUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full rounded-lg bg-[#B88A44] py-3 text-sm font-bold text-white shadow-lg"
+              >
                 Open in App
-              </button>
+              </a>
             </div>
           </div>
         </div>

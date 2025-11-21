@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 /* eslint-disable react-hooks/purity */
 "use client";
 
@@ -64,7 +65,7 @@ const articles = [
       "สปาเท้าช่วยลดกลิ่นอับ ขจัดเซลล์ผิวที่ตายแล้ว และช่วยให้เลือดลมเดินสะดวก เหมาะสำหรับผู้ที่เดินเยอะหรือใส่ส้นสูงเป็นประจำ...",
     category: "Spa Treatment",
     image:
-      "https://images.unsplash.com/photo-1519014816548-bf5fe059e98b?q=80&w=800&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1519415510236-718bdfcd89c8?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     date: "10 Nov 2024",
     author: "Karma Admin",
     tags: ["Foot Spa", "Pedicure", "Hygiene"],
@@ -275,9 +276,7 @@ export default function ArticlesPage() {
                       className="group flex items-center justify-between text-gray-600 transition hover:text-[#B88A44]"
                     >
                       <span>{cat}</span>
-                      <span className="rounded-full bg-[#FFF8E7] px-2 py-1 text-xs font-bold text-[#B88A44] transition group-hover:bg-[#B88A44] group-hover:text-white">
-                        {Math.floor(Math.random() * 10) + 1}
-                      </span>
+                      <span className="rounded-full bg-[#FFF8E7] px-2 py-1 text-xs font-bold text-[#B88A44] transition group-hover:bg-[#B88A44] group-hover:text-white"></span>
                     </a>
                   </li>
                 ))}

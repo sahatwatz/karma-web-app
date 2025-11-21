@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 /* eslint-disable react-hooks/set-state-in-effect */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
@@ -77,17 +78,47 @@ const articlesData: Record<string, any> = {
     author: "Therapist Lek",
     category: "Health",
     readTime: "6 min read",
-    content: `<p class="mb-6">นั่งทำงานหน้าคอมพิวเตอร์นานๆ อาการปวดคอ บ่า ไหล่ เป็นสิ่งที่หลีกเลี่ยงยาก มาดูวิธีบรรเทาอาการเบื้องต้นกัน...</p>`,
+    content: `<p class="mb-6">นั่งทำงานหน้าคอมพิวเตอร์นานๆ จนปวดร้าวลงแขน หรือรู้สึกหนักบ่า อาการเหล่านี้คือสัญญาณเตือนของ "ออฟฟิศซินโดรม" วันนี้ Karma 2 ขอแนะนำ 3 ท่าง่ายๆ ที่ช่วยบรรเทาอาการได้ด้วยตัวเองระหว่างวันค่ะ</p>
+      
+      <h3 class="text-2xl font-serif font-bold text-[#3E2723] mb-4">1. ท่านวดกดจุดคลายบ่า (Trapezius Press)</h3>
+      <p class="mb-6">ใช้นิ้วมือข้างตรงข้าม (เช่น มือขวากดบ่าซ้าย) กดลงบนกล้ามเนื้อบ่าจุดที่รู้สึกตึงที่สุด กดค้างไว้ประมาณ 10-15 วินาที แล้วค่อยๆ ปล่อย ทำสลับข้างซ้าย-ขวา จะช่วยให้เลือดไหลเวียนดีขึ้นและกล้ามเนื้อคลายตัวจากการเกร็ง</p>
+
+      <h3 class="text-2xl font-serif font-bold text-[#3E2723] mb-4">2. ท่ายืดกล้ามเนื้อคอด้านข้าง (Neck Stretch)</h3>
+      <p class="mb-6">นั่งตัวตรง วางมือข้างหนึ่งไว้ใต้เก้าอี้เพื่อตรึงไหล่ให้ต่ำลง ใช้มืออีกข้างจับศีรษะแล้วค่อยๆ เอียงคอไปด้านตรงข้ามจนรู้สึกตึงที่ลำคอด้านข้าง ค้างไว้ 15 วินาที ท่านี้ช่วยลดอาการคอแข็งและปวดร้าวขึ้นศีรษะได้ดีมาก</p>
+
+      <h3 class="text-2xl font-serif font-bold text-[#3E2723] mb-4">3. ท่าประสานมือยืดสะบัก (Scapula Release)</h3>
+      <p class="mb-6">ประสานมือทั้งสองข้างยื่นไปด้านหน้าให้สุด แขม่วท้อง โก่งหลังเล็กน้อย และก้มหน้าลงจนคางชิดอก จะรู้สึกตึงบริเวณสะบักหลัง ท่านี้ช่วยแก้อาการปวดสะบักจมที่ชาวออฟฟิศเป็นกันบ่อยๆ</p>
+      
+      <div class="bg-[#FFF8E7] p-6 rounded-xl border-l-4 border-[#B88A44] my-8">
+        <p class="font-bold text-[#8C6B35]">Tips: หากทำเองแล้วยังรู้สึกตึงลึกๆ แนะนำโปรแกรม "Back, Neck & Shoulder" ที่ Karma 2 ให้ผู้เชี่ยวชาญช่วยรีดเส้นที่เข้าถึงยากให้คุณนะคะ</p>
+      </div>`,
   },
   "spa-pedicure-benefits": {
     title: "ทำไมต้องทำสปาเท้า? มากกว่าความสะอาดคือสุขภาพที่ดี",
     image:
-      "https://images.unsplash.com/photo-1519014816548-bf5fe059e98b?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1519415510236-718bdfcd89c8?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     date: "10 Nov 2024",
     author: "Karma Admin",
     category: "Spa Treatment",
     readTime: "3 min read",
-    content: `<p class="mb-6">เท้าคืออวัยวะที่รับบทหนักที่สุดในร่างกาย การทำสปาเท้าจึงเป็นการให้รางวัลและดูแลสุขภาพเท้าที่ดีที่สุด...</p>`,
+    content: `<p class="mb-6">เท้าคืออวัยวะที่รับบทหนักที่สุดในร่างกาย เพราะต้องแบกรับน้ำหนักตัวเราตลอดทั้งวัน การทำสปาเท้า (Spa Pedicure) จึงไม่ใช่แค่เรื่องของความสวยงาม แต่เป็นการดูแลสุขภาพเท้าอย่างถูกวิธี มาดูเหตุผลที่คุณควรหาเวลาไปทำสปาเท้ากันค่ะ</p>
+
+      <h3 class="text-2xl font-serif font-bold text-[#3E2723] mb-4">1. ป้องกันการติดเชื้อและปัญหาสุขภาพเล็บ</h3>
+      <p class="mb-6">การตัดหนังและเล็บอย่างถูกวิธีโดยช่างผู้ชำนาญ ช่วยลดความเสี่ยงของการเกิดเล็บขบ (Ingrown Toenails) และการสะสมของเชื้อแบคทีเรียหรือเชื้อราตามซอกเล็บ ซึ่งเป็นสาเหตุของกลิ่นเท้าและโรคผิวหนังต่างๆ</p>
+
+      <h3 class="text-2xl font-serif font-bold text-[#3E2723] mb-4">2. กระตุ้นการไหลเวียนโลหิต</h3>
+      <p class="mb-6">ในขั้นตอนการทำสปา จะมีการนวดเท้าและขา ซึ่งช่วยกระตุ้นการไหลเวียนของเลือด บรรเทาอาการปวดเมื่อยจากการเดินหรือยืนนานๆ และช่วยลดอาการเท้าบวมได้เป็นอย่างดี</p>
+
+      <h3 class="text-2xl font-serif font-bold text-[#3E2723] mb-4">3. ขจัดเซลล์ผิวที่ตายแล้ว (Exfoliation)</h3>
+      <p class="mb-6">การสครับเท้าช่วยกำจัดเซลล์ผิวที่ตายแล้วและผิวที่ด้านแข็ง (Calluses) โดยเฉพาะบริเวณส้นเท้า ทำให้ผิวเท้ากลับมาเนียนนุ่ม น่าสัมผัส และช่วยให้ครีมบำรุงซึมซาบได้ดียิ่งขึ้น</p>
+
+      <div class="bg-[#FFF8E7] p-6 rounded-xl border-l-4 border-[#B88A44] my-8">
+        <p class="font-bold text-[#8C6B35]">Tips: เพื่อสุขภาพเท้าที่ดี แนะนำให้ทำสปาเท้าอย่างน้อยเดือนละ 1 ครั้ง และควรเลือกร้านที่ใช้อุปกรณ์ที่ผ่านการฆ่าเชื้ออย่างได้มาตรฐานเหมือนที่ Karma 2 นะคะ</p>
+      </div>
+
+      <h3 class="text-2xl font-serif font-bold text-[#3E2723] mb-4">4. ผ่อนคลายความเครียด</h3>
+      <p class="mb-6">การแช่เท้าในน้ำอุ่นผสมเกลือสปาหรือน้ำมันหอมระเหย เป็นการบำบัดความเครียดชั้นยอด ช่วยให้รู้สึกสดชื่น ผ่อนคลายทั้งร่างกายและจิตใจหลังจากวันที่เหนื่อยล้า</p>
+    `,
   },
 };
 
@@ -297,38 +328,6 @@ export default function ArticleDetailPage({
               >
                 <Phone size={18} /> Call (+66) 857965849
               </a>
-            </div>
-
-            {/* Related Articles Mockup */}
-            <div>
-              <h4 className="mb-4 font-serif text-xl font-bold text-[#3E2723]">
-                Related Articles
-              </h4>
-              <div className="space-y-4">
-                {["Office Syndrome Relief", "Spa Pedicure Benefits"].map(
-                  (title, i) => (
-                    <a href="#" key={i} className="group block">
-                      <div className="flex items-center gap-4">
-                        <div className="h-20 w-20 shrink-0 overflow-hidden rounded-lg bg-gray-200">
-                          <img
-                            src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?q=80&w=200"
-                            className="h-full w-full object-cover transition duration-500 group-hover:scale-110"
-                            alt=""
-                          />
-                        </div>
-                        <div>
-                          <h5 className="text-sm leading-snug font-bold text-[#3E2723] transition group-hover:text-[#B88A44]">
-                            {title}
-                          </h5>
-                          <span className="mt-1 block text-xs text-gray-400">
-                            Read more
-                          </span>
-                        </div>
-                      </div>
-                    </a>
-                  ),
-                )}
-              </div>
             </div>
           </aside>
         </div>
