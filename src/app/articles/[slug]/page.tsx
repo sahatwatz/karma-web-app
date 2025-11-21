@@ -15,8 +15,6 @@ import {
   Twitter,
   Link as LinkIcon,
   Phone,
-  Menu,
-  X,
 } from "lucide-react";
 
 // --- Mock Data (จำลองฐานข้อมูลบทความ) ---
@@ -224,7 +222,7 @@ export default function ArticleDetailPage({
           className="h-full w-full object-cover"
         />
 
-        <div className="absolute bottom-0 left-0 z-20 w-full bg-gradient-to-t from-black/80 to-transparent p-6 md:p-12">
+        <div className="absolute bottom-0 left-0 z-20 w-full bg-linear-to-t from-black/80 to-transparent p-6 md:p-12">
           <div className="container mx-auto max-w-4xl">
             <Link
               href="/articles"

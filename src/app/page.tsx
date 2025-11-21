@@ -2,18 +2,15 @@
 "use client";
 
 import React, { useState } from "react";
-import Head from "next/head";
 import {
   Phone,
   MapPin,
   Clock,
-  Star,
   Menu,
   X,
   Facebook,
   Instagram,
   ArrowRight,
-  CheckCircle2,
 } from "lucide-react";
 
 // --- Mock Data: Massage Menu ---
@@ -118,7 +115,7 @@ const Navbar = () => {
       <div className="container mx-auto flex items-center justify-between px-6 py-4">
         {/* Logo */}
         <div className="flex items-center gap-2">
-          <div className="bg-gradient-to-r from-[#8C6B35] to-[#B88A44] bg-clip-text font-serif text-3xl font-black text-transparent">
+          <div className="bg-linear-to-r from-[#8C6B35] to-[#B88A44] bg-clip-text font-serif text-3xl font-black text-transparent">
             Karma 2
           </div>
         </div>
@@ -179,7 +176,7 @@ const Hero = () => {
     >
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 z-10 bg-gradient-to-b from-black/40 via-[#3E2723]/40 to-[#FFF8E7]"></div>
+        <div className="absolute inset-0 z-10 bg-linear-to-b from-black/40 via-[#3E2723]/40 to-[#FFF8E7]"></div>
         <img
           src="https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2?q=80&w=2000&auto=format&fit=crop"
           alt="Karma 2 Shop"
@@ -217,7 +214,7 @@ const Hero = () => {
       {/* Curve Divider */}
       <div className="absolute bottom-0 left-0 z-20 w-full rotate-180 overflow-hidden leading-none">
         <svg
-          className="relative block h-[80px] w-[calc(100%+1.3px)] text-[#FFF8E7]"
+          className="relative block h-20 w-[calc(100%+1.3px)] text-[#FFF8E7]"
           data-name="Layer 1"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 1200 120"
@@ -365,7 +362,7 @@ const LocationSection = () => {
         <div className="flex flex-1 justify-center">
           <div className="relative h-[500px] w-[300px] rounded-[2.5rem] border-4 border-[#B88A44] bg-[#3E2723] p-4 shadow-2xl">
             <div className="absolute top-0 left-1/2 z-20 h-6 w-24 -translate-x-1/2 rounded-b-xl bg-[#3E2723]"></div>
-            <div className="relative flex h-full w-full flex-col items-center justify-center overflow-hidden rounded-[2rem] bg-white p-6 text-center">
+            <div className="relative flex h-full w-full flex-col items-center justify-center overflow-hidden rounded-4xl bg-white p-6 text-center">
               {/* Content inside phone */}
               <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-green-100 text-green-600">
                 <MapPin size={32} />

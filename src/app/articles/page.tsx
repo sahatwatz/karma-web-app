@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-html-link-for-pages */
 /* eslint-disable @next/next/no-img-element */
-/* eslint-disable react-hooks/purity */
+
 "use client";
 
 import React, { useState } from "react";
@@ -8,7 +8,6 @@ import React, { useState } from "react";
 // import Link from "next/link";
 import {
   Search,
-  Tag,
   Calendar,
   User,
   ArrowRight,
