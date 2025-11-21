@@ -155,8 +155,11 @@ const Navbar = () => {
           {["Home", "Menu", "Blog", "Location"].map((item) => (
             <a
               key={item}
-              href={`#${item.toLowerCase()}`}
-              onClick={() => setIsMobileMenuOpen(false)}
+              href={item === "Blog" ? "/articles" : `#${item.toLowerCase()}`}
+              onClick={() => {
+                // Add delay to ensure navigation happens before component unmounts
+                setTimeout(() => setIsMobileMenuOpen(false), 2000);
+              }}
               className="block text-lg font-medium text-[#3E2723]"
             >
               {item}
