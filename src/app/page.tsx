@@ -326,7 +326,7 @@ const GallerySection = () => {
   ];
 
   return (
-    <section id="gallery" className="bg-[#FFF8E7] px-4 py-20">
+    <section id="gallery" className="bg-[#FFFFFF] px-4 py-20">
       <div className="container mx-auto max-w-6xl">
         <div className="mb-12 text-center">
           <h3 className="mb-4 font-serif text-4xl font-bold text-[#3E2723] md:text-5xl">
@@ -486,12 +486,12 @@ export default function LandingPage() {
         dangerouslySetInnerHTML={{
           __html: `
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Prompt:wght@300;400;500;600&display=swap');
-        
+
         :root {
           --font-serif: 'Playfair Display', serif;
           --font-sans: 'Prompt', sans-serif;
         }
-        
+
         .font-serif { font-family: var(--font-serif); }
         .font-sans { font-family: var(--font-sans); }
       `,
