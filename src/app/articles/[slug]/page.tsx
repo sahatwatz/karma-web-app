@@ -23,10 +23,10 @@ const articlesData: Record<string, any> = {
     title: "5 ประโยชน์ของการนวดแผนไทย ที่มากกว่าแค่ความผ่อนคลาย",
     image:
       "https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2?q=80&w=1200&auto=format&fit=crop",
-    date: "20 Nov 2024",
+    date: "20 Nov 2025",
     author: "Karma Admin",
     category: "Massage Therapy",
-    readTime: "5 min read",
+    readTime: "3 mins read",
     content: `
       <p class="mb-6">การนวดแผนไทย (Traditional Thai Massage) เป็นศาสตร์การบำบัดที่มีมาอย่างยาวนาน ไม่ใช่เพียงแค่การบีบนวดเพื่อคลายกล้ามเนื้อ แต่ยังเป็นการปรับสมดุลธาตุในร่างกาย วันนี้ Karma 2 จะพามาดูประโยชน์ลึกๆ ที่คุณอาจไม่เคยรู้</p>
       
@@ -54,10 +54,10 @@ const articlesData: Record<string, any> = {
     title: "เคล็ดลับดูแลเล็บเจลให้ติดทนนาน เงางามเกิน 3 สัปดาห์",
     image:
       "https://images.unsplash.com/photo-1632345031435-8727f6897d53?q=80&w=1200&auto=format&fit=crop",
-    date: "18 Nov 2024",
-    author: "Nail Artist Joy",
+    date: "18 Nov 2025",
+    author: "Karma Admin",
     category: "Nail Care",
-    readTime: "4 min read",
+    readTime: "2 mins read",
     content: `
       <p class="mb-6">ใครที่ชอบทำเล็บเจลคงเจอปัญหาเล็บหลุดร่อนก่อนเวลา หรือหน้าเล็บบาง วันนี้ช่างจอยจาก Karma 2 มีเทคนิคง่ายๆ มาฝากกันค่ะ</p>
       <h3 class="text-2xl font-serif font-bold text-[#3E2723] mb-4">1. หลีกเลี่ยงการใช้เล็บแกะเกา</h3>
@@ -72,10 +72,10 @@ const articlesData: Record<string, any> = {
     title: "ออฟฟิศซินโดรมถามหา? แนะนำ 3 ท่านวดแก้อาการปวดคอ บ่า ไหล่",
     image:
       "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?q=80&w=1200&auto=format&fit=crop",
-    date: "15 Nov 2024",
-    author: "Therapist Lek",
+    date: "15 Nov 2025",
+    author: "Karma Admin",
     category: "Health",
-    readTime: "6 min read",
+    readTime: "3 mins read",
     content: `<p class="mb-6">นั่งทำงานหน้าคอมพิวเตอร์นานๆ จนปวดร้าวลงแขน หรือรู้สึกหนักบ่า อาการเหล่านี้คือสัญญาณเตือนของ "ออฟฟิศซินโดรม" วันนี้ Karma 2 ขอแนะนำ 3 ท่าง่ายๆ ที่ช่วยบรรเทาอาการได้ด้วยตัวเองระหว่างวันค่ะ</p>
       
       <h3 class="text-2xl font-serif font-bold text-[#3E2723] mb-4">1. ท่านวดกดจุดคลายบ่า (Trapezius Press)</h3>
@@ -95,10 +95,10 @@ const articlesData: Record<string, any> = {
     title: "ทำไมต้องทำสปาเท้า? มากกว่าความสะอาดคือสุขภาพที่ดี",
     image:
       "https://images.unsplash.com/photo-1519415510236-718bdfcd89c8?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    date: "10 Nov 2024",
+    date: "10 Nov 2025",
     author: "Karma Admin",
     category: "Spa Treatment",
-    readTime: "3 min read",
+    readTime: "3 mins read",
     content: `<p class="mb-6">เท้าคืออวัยวะที่รับบทหนักที่สุดในร่างกาย เพราะต้องแบกรับน้ำหนักตัวเราตลอดทั้งวัน การทำสปาเท้า (Spa Pedicure) จึงไม่ใช่แค่เรื่องของความสวยงาม แต่เป็นการดูแลสุขภาพเท้าอย่างถูกวิธี มาดูเหตุผลที่คุณควรหาเวลาไปทำสปาเท้ากันค่ะ</p>
 
       <h3 class="text-2xl font-serif font-bold text-[#3E2723] mb-4">1. ป้องกันการติดเชื้อและปัญหาสุขภาพเล็บ</h3>

@@ -122,7 +122,7 @@ const Navbar = () => {
 
         {/* Desktop Menu */}
         <div className="hidden items-center space-x-8 md:flex">
-          {["Home", "Menu", "Blog", "Location"].map((item) => (
+          {["Home", "Menu", "Gallery", "Blog", "Location"].map((item) => (
             <a
               key={item}
               href={item === "Blog" ? "/articles" : `#${item.toLowerCase()}`}
@@ -152,7 +152,7 @@ const Navbar = () => {
       {/* Mobile Menu Dropdown */}
       {isMobileMenuOpen && (
         <div className="space-y-4 border-t border-[#B88A44]/20 bg-[#FFF8E7] px-6 py-6 md:hidden">
-          {["Home", "Menu", "Blog", "Location"].map((item) => (
+          {["Home", "Menu", "Gallery", "Blog", "Location"].map((item) => (
             <a
               key={item}
               href={item === "Blog" ? "/articles" : `#${item.toLowerCase()}`}
@@ -201,7 +201,7 @@ const Hero = () => {
           Karma 2
         </h1>
         <h2 className="mb-8 font-sans text-xl font-light tracking-[0.3em] text-[#FFF8E7] uppercase drop-shadow-md md:text-3xl">
-          Massage & Nails
+          Massage & Nail
         </h2>
         <p className="mx-auto mb-10 max-w-xl text-lg font-light text-white/90">
           Experience premium relaxation and beauty services at Karon.
@@ -235,7 +235,7 @@ const Hero = () => {
 
 // --- MENU SECTION COMPONENT ---
 const MenuSection = () => {
-  const [activeTab, setActiveTab] = useState<"massage" | "nails">("massage");
+  const [activeTab, setActiveTab] = useState<"massage" | "nail">("massage");
 
   return (
     <section id="menu" className="relative bg-[#FFF8E7] px-4 py-20">
@@ -255,23 +255,21 @@ const MenuSection = () => {
           <div className="inline-flex rounded-full border border-[#B88A44]/20 bg-white p-1.5 shadow-md">
             <button
               onClick={() => setActiveTab("massage")}
-              className={`rounded-full px-8 py-3 font-bold transition-all duration-300 ${
-                activeTab === "massage"
-                  ? "bg-[#3E2723] text-[#FFF8E7] shadow-lg"
-                  : "text-[#8C6B35] hover:bg-[#FFF8E7]"
-              }`}
+              className={`rounded-full px-8 py-3 font-bold transition-all duration-300 ${activeTab === "massage"
+                ? "bg-[#3E2723] text-[#FFF8E7] shadow-lg"
+                : "text-[#8C6B35] hover:bg-[#FFF8E7]"
+                }`}
             >
               Massage
             </button>
             <button
-              onClick={() => setActiveTab("nails")}
-              className={`rounded-full px-8 py-3 font-bold transition-all duration-300 ${
-                activeTab === "nails"
-                  ? "bg-[#3E2723] text-[#FFF8E7] shadow-lg"
-                  : "text-[#8C6B35] hover:bg-[#FFF8E7]"
-              }`}
+              onClick={() => setActiveTab("nail")}
+              className={`rounded-full px-8 py-3 font-bold transition-all duration-300 ${activeTab === "nail"
+                ? "bg-[#3E2723] text-[#FFF8E7] shadow-lg"
+                : "text-[#8C6B35] hover:bg-[#FFF8E7]"
+                }`}
             >
-              Nails & Spa
+              Nail & Spa
             </button>
           </div>
         </div>
@@ -305,6 +303,54 @@ const MenuSection = () => {
         {/* Disclaimer */}
         <div className="mt-10 text-center text-sm text-gray-500">
           <p>* Prices are subject to change without prior notice.</p>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+const GallerySection = () => {
+  const galleryImages = [
+    "https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2?q=80&w=800&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?q=80&w=800&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1519415510236-718bdfcd89c8?q=80&w=800&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1632345031435-8727f6897d53?q=80&w=800&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1515377905703-c4788e51af15?q=80&w=800&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1540555700478-4be289fbecef?q=80&w=800&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?q=80&w=800&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1604654894610-df63bc536371?q=80&w=800&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?q=80&w=800&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1596178065887-1198b6148b2b?q=80&w=800&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1522337660859-02fbefca4702?q=80&w=800&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2?q=80&w=800&auto=format&fit=crop",
+  ];
+
+  return (
+    <section id="gallery" className="bg-[#FFF8E7] px-4 py-20">
+      <div className="container mx-auto max-w-6xl">
+        <div className="mb-12 text-center">
+          <h3 className="mb-4 font-serif text-4xl font-bold text-[#3E2723] md:text-5xl">
+            Our Atmosphere
+          </h3>
+          <p className="font-sans text-sm tracking-widest text-[#8C6B35] uppercase">
+            Peaceful • Clean • Relaxing
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
+          {galleryImages.map((src, index) => (
+            <div
+              key={index}
+              className="group relative h-64 overflow-hidden rounded-xl shadow-md"
+            >
+              <img
+                src={src}
+                alt={`Gallery Image ${index + 1}`}
+                className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-black/20 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
+            </div>
+          ))}
         </div>
       </div>
     </section>
@@ -407,7 +453,7 @@ const Footer = () => (
         Karma 2
       </h2>
       <p className="mb-8 text-sm tracking-widest uppercase opacity-60">
-        Massage & Nails • Kata Karon
+        Massage & Nail • Kata Karon
       </p>
 
       <div className="mb-8 flex justify-center gap-6">
@@ -468,6 +514,7 @@ export default function LandingPage() {
         </section>
 
         <MenuSection />
+        <GallerySection />
         <LocationSection />
       </main>
 

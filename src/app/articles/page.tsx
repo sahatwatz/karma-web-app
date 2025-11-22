@@ -28,7 +28,7 @@ const articles = [
     category: "Massage Therapy",
     image:
       "https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2?q=80&w=800&auto=format&fit=crop",
-    date: "20 Nov 2024",
+    date: "20 Nov 2025",
     author: "Karma Admin",
     tags: ["Thai Massage", "Health", "Relaxation"],
   },
@@ -41,8 +41,8 @@ const articles = [
     category: "Nail Care",
     image:
       "https://images.unsplash.com/photo-1632345031435-8727f6897d53?q=80&w=800&auto=format&fit=crop",
-    date: "18 Nov 2024",
-    author: "Nail Artist Joy",
+    date: "18 Nov 2025",
+    author: "Karma Admin",
     tags: ["Nails", "Beauty Tips", "Gel Polish"],
   },
   {
@@ -54,8 +54,8 @@ const articles = [
     category: "Health & Wellness",
     image:
       "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?q=80&w=800&auto=format&fit=crop",
-    date: "15 Nov 2024",
-    author: "Therapist Lek",
+    date: "15 Nov 2025",
+    author: "Karma Admin",
     tags: ["Office Syndrome", "Massage", "Health"],
   },
   {
@@ -67,7 +67,7 @@ const articles = [
     category: "Spa Treatment",
     image:
       "https://images.unsplash.com/photo-1519415510236-718bdfcd89c8?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    date: "10 Nov 2024",
+    date: "10 Nov 2025",
     author: "Karma Admin",
     tags: ["Foot Spa", "Pedicure", "Hygiene"],
   },
@@ -348,21 +348,19 @@ export default function ArticlesPage() {
                   <li key={cat}>
                     <button
                       onClick={() => setSelectedCategory(cat)}
-                      className={`group flex w-full items-center justify-between rounded-lg px-3 py-2 text-sm transition-all ${
-                        selectedCategory === cat
+                      className={`group flex w-full items-center justify-between rounded-lg px-3 py-2 text-sm transition-all ${selectedCategory === cat
                           ? "bg-[#B88A44] text-white shadow-md"
                           : "text-gray-600 hover:bg-[#FFF8E7] hover:text-[#B88A44]"
-                      }`}
+                        }`}
                     >
                       <span className="font-medium">
                         {cat === "All" ? "บทความทั้งหมด (All)" : cat}
                       </span>
                       <span
-                        className={`rounded-full px-2 py-0.5 text-xs font-bold transition ${
-                          selectedCategory === cat
+                        className={`rounded-full px-2 py-0.5 text-xs font-bold transition ${selectedCategory === cat
                             ? "bg-white/20 text-white"
                             : "bg-[#FFF8E7] text-[#B88A44] group-hover:bg-[#B88A44] group-hover:text-white"
-                        }`}
+                          }`}
                       >
                         {cat === "All" ? articles.length : categoryCounts[cat]}
                       </span>
