@@ -1,11 +1,18 @@
 import type { Metadata } from "next";
-import { Inter, Playfair_Display } from "next/font/google";
+import { Prompt, Playfair_Display } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
+const prompt = Prompt({
+  weight: ["300", "400", "500", "600"],
+  subsets: ["latin", "thai"],
+  variable: "--font-sans",
+});
+
 const playfair = Playfair_Display({
+  weight: ["400", "700", "900"],
+  style: ["normal", "italic"],
   subsets: ["latin"],
-  variable: "--font-playfair",
+  variable: "--font-serif",
 });
 
 export const metadata: Metadata = {
@@ -19,8 +26,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${playfair.variable} `}>
-      <body className="flex min-h-screen flex-col">{children}</body>
+    <html lang="en" className={`${prompt.variable} ${playfair.variable}`}>
+      <body className="flex min-h-screen flex-col font-sans">{children}</body>
     </html>
   );
 }
