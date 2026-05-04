@@ -13,97 +13,83 @@ import {
   ArrowRight,
 } from "lucide-react";
 
-// --- Mock Data: Massage Menu ---
-const massageMenu = [
-  {
-    id: 1,
-    name: "Traditional Thai Massage",
-    desc: "Ancient healing system combining acupressure and yoga postures.",
-    price: "300",
-    duration: "60 mins",
-  },
-  {
-    id: 2,
-    name: "Aromatic Oil Massage",
-    desc: "Gentle massage with essential oils to relax the body and mind.",
-    price: "400",
-    duration: "60 mins",
-  },
-  {
-    id: 3,
-    name: "Foot Reflexology",
-    desc: "Pressure points massage to restore energy flow.",
-    price: "300",
-    duration: "60 mins",
-  },
-  {
-    id: 4,
-    name: "Back, Neck & Shoulder",
-    desc: "Focused relief for tension and office syndrome.",
-    price: "350",
-    duration: "60 mins",
-  },
-  {
-    id: 5,
-    name: "Coconut Oil Massage",
-    desc: "Deep moisturizing massage for sun-kissed skin.",
-    price: "500",
-    duration: "60 mins",
-  },
-  {
-    id: 6,
-    name: "Karma Signature Package",
-    desc: "Combination of Thai & Oil massage + Foot Spa.",
-    price: "800",
-    duration: "120 mins",
-  },
-];
-
-// --- Mock Data: Nail Menu ---
-const nailMenu = [
-  {
-    id: 1,
-    name: "Classic Manicure",
-    desc: "Cuticle care, shape, buff and polish.",
-    price: "250",
-    duration: "45 mins",
-  },
-  {
-    id: 2,
-    name: "Gel Polish Hands",
-    desc: "Long-lasting premium gel color application.",
-    price: "400",
-    duration: "60 mins",
-  },
-  {
-    id: 3,
-    name: "Gel Polish Feet",
-    desc: "Long-lasting premium gel color for toes.",
-    price: "450",
-    duration: "60 mins",
-  },
-  {
-    id: 4,
-    name: "Spa Pedicure",
-    desc: "Scrub, mask, massage and heel care.",
-    price: "500",
-    duration: "75 mins",
-  },
-  {
-    id: 5,
-    name: "Acrylic Extensions",
-    desc: "Full set extensions with natural finish.",
-    price: "1,200",
-    duration: "90 mins",
-  },
-  {
-    id: 6,
-    name: "Nail Art Design",
-    desc: "Custom designs, glitter, ombre (per finger).",
-    price: "50+",
-    duration: "Var",
-  },
-];
+// --- Menu Data ---
+const menuData = {
+  massage: [
+    { name: "Thai Massage", prices: [{ d: "60min", p: "350" }, { d: "90min", p: "500" }, { d: "120min", p: "700" }] },
+    { name: "Foot Massage", prices: [{ d: "60min", p: "350" }, { d: "90min", p: "500" }, { d: "120min", p: "700" }] },
+    { name: "Foot + Head + Shoulder", prices: [{ d: "60min", p: "400" }, { d: "90min", p: "500" }, { d: "120min", p: "700" }] },
+    { name: "Oil Massage", prices: [{ d: "60min", p: "400" }, { d: "90min", p: "600" }, { d: "120min", p: "800" }] },
+    { name: "Back & Shoulder", prices: [{ d: "60min", p: "400" }, { d: "90min", p: "600" }, { d: "120min", p: "800" }] },
+    { name: "Back & Foot", prices: [{ d: "60min", p: "500" }, { d: "90min", p: "650" }, { d: "120min", p: "750" }] },
+    { name: "Thai & Oil", prices: [{ d: "60min", p: "500" }, { d: "90min", p: "650" }, { d: "120min", p: "750" }] },
+    { name: "Thai & Foot", prices: [{ d: "90min", p: "550" }, { d: "120min", p: "700" }] },
+    { name: "Aroma Oil Massage", prices: [{ d: "60min", p: "500" }, { d: "90min", p: "750" }] },
+    { name: "Coconut Oil Massage", prices: [{ d: "60min", p: "500" }, { d: "90min", p: "750" }] },
+    { name: "Aloe Vera Massage", prices: [{ d: "60min", p: "600" }, { d: "90min", p: "900" }] },
+    { name: "Sport massage", prices: [{ d: "60min", p: "600" }, { d: "90min", p: "900" }] },
+    { name: "Hot Oil Massage", prices: [{ d: "60min", p: "800" }] },
+    { name: "Olive Oil Massage", prices: [{ d: "60min", p: "800" }] },
+    { name: "Pure Gold Oil Massage", prices: [{ d: "60min", p: "800" }] },
+    { name: "Milky Cream Massage", prices: [{ d: "60min", p: "700" }] },
+    { name: "Candle Massage", prices: [{ d: "60min", p: "800" }] },
+  ],
+  bodyTherapy: [
+    { name: "Hot Stone Massage With Oil", prices: [{ d: "60min", p: "900" }, { d: "90min", p: "1,000" }] },
+    { name: "Hot Compress + Oil Massage", prices: [{ d: "90min", p: "700" }, { d: "120min", p: "900" }] },
+    { name: "Hot Compress + Thai Massage", prices: [{ d: "90min", p: "650" }, { d: "120min", p: "850" }] },
+    { name: "Body Wrap + Oil Massage", prices: [{ d: "90min", p: "800" }, { d: "120min", p: "1,000" }] },
+  ],
+  packages: [
+    { name: "Foot Massage", prices: [{ d: "30min", p: "250" }] },
+    { name: "Head + Shoulder", prices: [{ d: "30min", p: "250" }] },
+    { name: "Hand + Shoulder", prices: [{ d: "30min", p: "250" }] },
+    { name: "Ear Spa", prices: [{ d: "30min", p: "300" }] },
+  ],
+  maskTreatment: [
+    { name: "Gold Mask", prices: [{ d: "3 Steps", p: "300" }] },
+    { name: "Jelly Mask", prices: [{ d: "3 Steps", p: "300" }] },
+    { name: "Collagn+Vitaminc Mask", prices: [{ d: "3 Steps", p: "300" }] },
+    { name: "Cocumbre Mask", prices: [{ d: "3 Steps", p: "250" }] },
+    { name: "Aloe Vera Mask", prices: [{ d: "3 Steps", p: "250" }] },
+    { name: "Facial Massage", prices: [{ d: "3 Steps", p: "300" }] },
+  ],
+  maintenance: [
+    { name: "Standard Manicure", prices: [{ d: "Service", p: "200" }] },
+    { name: "Standard Pedicure", prices: [{ d: "Service", p: "300" }] },
+    { name: "Deep Foot Scrub", prices: [{ d: "Service", p: "300" }] },
+  ],
+  nailSpa: [
+    { name: "Organic Spa & Treatment", prices: [{ d: "Hand", p: "500" }, { d: "Foot", p: "790" }] },
+    { name: "Paraffin Treatment & Therapy", prices: [{ d: "Hand", p: "500" }, { d: "Foot", p: "790" }] },
+  ],
+  nailExtension: [
+    { name: "Gel Extension", prices: [{ d: "Service", p: "1,500" }] },
+    { name: "Pvc Extension", prices: [{ d: "Service", p: "500" }] },
+    { name: "Gel Fill", prices: [{ d: "Service", p: "800" }] },
+    { name: "Gel Fix", prices: [{ d: "Per nail", p: "150" }] },
+    { name: "Gel/acrylic Removal", prices: [{ d: "Removal", p: "400" }] },
+    { name: "Pvc Removal", prices: [{ d: "Removal", p: "200" }] },
+  ],
+  nailColor: [
+    { name: "Gel Polish Hand Or Foot", prices: [{ d: "Color", p: "350" }] },
+    { name: "Gel Polish Cat Eye", prices: [{ d: "Color", p: "500" }] },
+    { name: "Classic Polish Hand Or Foot", prices: [{ d: "Color", p: "200" }] },
+    { name: "Vitamin Nail", prices: [{ d: "Treatment", p: "50" }] },
+    { name: "Gel Polish Fix", prices: [{ d: "Per nail", p: "50" }] },
+    { name: "Gel Builder", prices: [{ d: "Builder", p: "200" }] },
+    { name: "Gel Polish Removal", prices: [{ d: "Removal", p: "100" }] },
+    { name: "Extra Thick Gel Base Removal", prices: [{ d: "Removal", p: "200" }] },
+  ],
+  nailArt: [
+    { name: "French Nail", prices: [{ d: "Art", p: "300" }] },
+    { name: "Ombre", prices: [{ d: "Art", p: "300" }] },
+    { name: "Chrome", prices: [{ d: "Art", p: "200" }] },
+    { name: "Art (Start)", prices: [{ d: "Per nail", p: "50" }] },
+    { name: "Sticker (Start)", prices: [{ d: "Per nail", p: "20" }] },
+    { name: "Stone / Accessories (Start)", prices: [{ d: "Per nail", p: "50" }] },
+  ]
+};
 
 // --- Components ---
 
@@ -234,8 +220,32 @@ const Hero = () => {
 };
 
 // --- MENU SECTION COMPONENT ---
+type MainCategory = "massage" | "nail";
+
+type MassageCategory = "massage" | "bodyTherapy" | "packages" | "maskTreatment";
+type NailCategory = "maintenance" | "nailSpa" | "nailExtension" | "nailColor" | "nailArt";
+
 const MenuSection = () => {
-  const [activeTab, setActiveTab] = useState<"massage" | "nail">("massage");
+  const [mainCategory, setMainCategory] = useState<MainCategory>("massage");
+  const [massageTab, setMassageTab] = useState<MassageCategory>("massage");
+  const [nailTab, setNailTab] = useState<NailCategory>("maintenance");
+
+  const massageTabs: { id: MassageCategory; label: string }[] = [
+    { id: "massage", label: "Massage" },
+    { id: "bodyTherapy", label: "Body Therapy" },
+    { id: "packages", label: "30 Min Package" },
+    { id: "maskTreatment", label: "Mask Treatment" },
+  ];
+
+  const nailTabs: { id: NailCategory; label: string }[] = [
+    { id: "maintenance", label: "Maintenance" },
+    { id: "nailSpa", label: "Spa & Treatment" },
+    { id: "nailExtension", label: "Extension" },
+    { id: "nailColor", label: "Nail Color" },
+    { id: "nailArt", label: "Nail Art" },
+  ];
+
+  const currentData = mainCategory === "massage" ? menuData[massageTab] : menuData[nailTab];
 
   return (
     <section id="menu" className="relative bg-[#FFF8E7] px-4 py-20">
@@ -250,51 +260,91 @@ const MenuSection = () => {
           </p>
         </div>
 
-        {/* Tab Switcher */}
-        <div className="mb-12 flex justify-center">
+        {/* Main Category Switcher */}
+        <div className="mb-8 flex justify-center">
           <div className="inline-flex rounded-full border border-[#B88A44]/20 bg-white p-1.5 shadow-md">
             <button
-              onClick={() => setActiveTab("massage")}
-              className={`rounded-full px-8 py-3 font-bold transition-all duration-300 ${activeTab === "massage"
-                ? "bg-[#3E2723] text-[#FFF8E7] shadow-lg"
-                : "text-[#8C6B35] hover:bg-[#FFF8E7]"
-                }`}
+              onClick={() => setMainCategory("massage")}
+              className={`rounded-full px-8 py-3 font-bold transition-all duration-300 ${
+                mainCategory === "massage"
+                  ? "bg-[#3E2723] text-[#FFF8E7] shadow-lg"
+                  : "text-[#8C6B35] hover:bg-[#FFF8E7]"
+              }`}
             >
-              Massage
+              Massage & Spa
             </button>
             <button
-              onClick={() => setActiveTab("nail")}
-              className={`rounded-full px-8 py-3 font-bold transition-all duration-300 ${activeTab === "nail"
-                ? "bg-[#3E2723] text-[#FFF8E7] shadow-lg"
-                : "text-[#8C6B35] hover:bg-[#FFF8E7]"
-                }`}
+              onClick={() => setMainCategory("nail")}
+              className={`rounded-full px-8 py-3 font-bold transition-all duration-300 ${
+                mainCategory === "nail"
+                  ? "bg-[#3E2723] text-[#FFF8E7] shadow-lg"
+                  : "text-[#8C6B35] hover:bg-[#FFF8E7]"
+              }`}
             >
-              Nail & Spa
+              Nail & Beauty
             </button>
+          </div>
+        </div>
+
+        {/* Sub Category Switcher */}
+        <div className="mb-12 flex w-full justify-start overflow-x-auto px-4 pb-4 md:justify-center">
+          <div className="inline-flex shrink-0 flex-nowrap gap-2 rounded-full border border-[#B88A44]/10 bg-white/60 p-1.5 shadow-sm whitespace-nowrap">
+            {mainCategory === "massage"
+              ? massageTabs.map((tab) => (
+                  <button
+                    key={tab.id}
+                    onClick={() => setMassageTab(tab.id)}
+                    className={`rounded-full px-6 py-2.5 text-sm font-bold transition-all duration-300 ${
+                      massageTab === tab.id
+                        ? "bg-[#B88A44] text-white shadow-md"
+                        : "text-[#8C6B35] hover:bg-[#FFF8E7]"
+                    }`}
+                  >
+                    {tab.label}
+                  </button>
+                ))
+              : nailTabs.map((tab) => (
+                  <button
+                    key={tab.id}
+                    onClick={() => setNailTab(tab.id)}
+                    className={`rounded-full px-6 py-2.5 text-sm font-bold transition-all duration-300 ${
+                      nailTab === tab.id
+                        ? "bg-[#B88A44] text-white shadow-md"
+                        : "text-[#8C6B35] hover:bg-[#FFF8E7]"
+                    }`}
+                  >
+                    {tab.label}
+                  </button>
+                ))}
           </div>
         </div>
 
         {/* Menu Content */}
         <div className="animate-in fade-in slide-in-from-bottom-4 grid grid-cols-1 gap-6 duration-500 md:grid-cols-2">
-          {(activeTab === "massage" ? massageMenu : nailMenu).map((item) => (
+          {currentData.map((item, idx) => (
             <div
-              key={item.id}
-              className="group flex items-start justify-between rounded-2xl border border-[#B88A44]/10 bg-white p-6 shadow-sm transition-all hover:shadow-xl"
+              key={idx}
+              className="group flex flex-col justify-between rounded-2xl border border-[#B88A44]/10 bg-white p-6 shadow-sm transition-all hover:shadow-xl"
             >
-              <div>
+              <div className="mb-4 border-b border-gray-100 pb-3">
                 <h4 className="font-serif text-xl font-bold text-[#3E2723] transition-colors group-hover:text-[#B88A44]">
                   {item.name}
                 </h4>
-                <p className="mt-1 mb-2 text-sm text-gray-500">{item.desc}</p>
-                <span className="inline-flex items-center gap-1 rounded-md bg-[#FFF8E7] px-2 py-1 text-xs font-medium text-[#B88A44]/80">
-                  <Clock size={12} /> {item.duration}
-                </span>
               </div>
-              <div className="flex flex-col items-end">
-                <span className="font-serif text-2xl font-bold text-[#B88A44]">
-                  {item.price}
-                </span>
-                <span className="text-[10px] text-gray-400 uppercase">THB</span>
+              <div className="flex flex-wrap gap-x-6 gap-y-4">
+                {item.prices.map((price, pIdx) => (
+                  <div key={pIdx} className="flex flex-col">
+                    <span className="text-xs font-medium text-gray-500 uppercase tracking-wider mb-1 flex items-center gap-1">
+                      <Clock size={12} /> {price.d}
+                    </span>
+                    <div className="flex items-end gap-1">
+                      <span className="font-serif text-2xl font-bold text-[#B88A44]">
+                        {price.p}
+                      </span>
+                      <span className="text-[10px] text-gray-400 uppercase mb-1">THB</span>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
           ))}
